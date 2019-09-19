@@ -26,7 +26,7 @@ function start(){
         var yCoord = readInt("What is the Y coordinate? ( #, #, y ) "); // Note, console prints out coordinates as x, z, y. z is height in 3d space and does not apply to maps
 
         if(yCoord >= 0 && yCoord <= 1650){ // North part of map
-            yCoord -= 1575; // The vertically the map is offset by half a square so the value of the number to subtract posiive Y coordinates is half the map size minus 75
+            yCoord -= 1575; // Vertically the map is offset by half a square so the value of the number to subtract posiive Y coordinates is half the map size minus 75
 		    yCoord /= -150;
 		    yCoord *= 1;
 		    yCoord = Math.floor(yCoord);
