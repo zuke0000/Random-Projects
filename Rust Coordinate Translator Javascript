@@ -1,0 +1,46 @@
+function start(){
+	        println("3300 MAP - Meters to map coordinates");
+	        
+		var xCoord = readInt("What is the X coordinate? ( x, #, # ) ");
+		
+		if(xCoord <= 0 && xCoord >= -1650){ // West side of map
+		    xCoord += 1650; // Half the size of the map
+		    xCoord /= 150; // Map coordinates are a square with a side distance of 150 meters
+		    xCoord += 65;
+            xCoord = Math.floor(xCoord); // Rounds xCoord value
+		    xCoord = String.fromCharCode(xCoord); // Turns value into a letter which is used for the map
+		    
+		    println(xCoord);
+
+		}else // If coordinate is not negative it is positive
+	    if(xCoord >= 0 && xCoord <= 1500){ // East side of map
+	        xCoord /= 150;
+		    xCoord += 10;
+		    xCoord += 66;
+		    xCoord = Math.floor(xCoord);
+		    xCoord = String.fromCharCode(xCoord);
+		    
+		    println(xCoord);
+	    }
+
+        var yCoord = readInt("What is the Y coordinate? ( #, #, y ) "); // Note, console prints out coordinates as x, z, y. z is height in 3d space and does not apply to maps
+
+        if(yCoord >= 0 && yCoord <= 1650){ // North part of map
+            yCoord -= 1575; // The vertically the map is offset by half a square so the value of the number to subtract posiive Y coordinates is half the map size minus 75
+		    yCoord /= -150;
+		    yCoord *= 1;
+		    yCoord = Math.floor(yCoord);
+		    
+		    println(yCoord);
+        }else
+        if (yCoord <= 0 && yCoord >= -1650){ // South part of map
+            yCoord *= -1;
+            yCoord += 1575;
+            yCoord /= 150;
+            yCoord = Math.floor(yCoord);
+            
+            println(yCoord);
+            
+        }
+    println("The map coordinates are " +xCoord + yCoord);
+}
